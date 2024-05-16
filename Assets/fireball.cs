@@ -12,10 +12,6 @@ public class Fireball : MonoBehaviour
     {
         //float angle = Vector3.Angle(direction, Vector3.right);
 
-        if (direction.y > 0)
-        {
-            transform.Rotate(new Vector3(0, 0, 90));
-        }
         if (direction.y < 0)
         {
             transform.Rotate(new Vector3(0, 0, 270));
