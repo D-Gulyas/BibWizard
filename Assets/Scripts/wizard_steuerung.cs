@@ -44,7 +44,6 @@ public class Wizard : MonoBehaviour
         //
         // Movement 
         //
-
         Vector3 movement = Vector3.zero;
 
         if (Input.GetKey("w"))
@@ -106,7 +105,6 @@ public class Wizard : MonoBehaviour
         //
         // Casting
         //
-
         castTimer -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space) && castTimer <= 0 && mana > 0)
         {

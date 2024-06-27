@@ -29,25 +29,20 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             score = 0;
 
-            // Nur beim ersten Mal das Game Objekt zu den nicht zerstörbaren Objekten hinzufügen
+            
             if (!isInitialized)
             {
                 isInitialized = true;
-                // Hier könnten weitere Initialisierungen erfolgen
-
-                // Beispiel für das Speichern von Stats in einer statischen Variable
-                StatsManager.Initialize(); // Initialisierung der Stats, falls benötigt
+                StatsManager.Initialize(); 
             }
             else
             {
-                // Wenn bereits ein Instance vorhanden ist, das neu erstellte GameManager zerstören
                 Destroy(gameObject);
                 return;
             }
         }
         else
         {
-            // Wenn bereits ein GameManager existiert, das neu erstellte GameManager zerstören
             Destroy(gameObject);
             return;
         }
@@ -72,10 +67,10 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    pause.SetActive(true);
+                    pause.SetActive(true);  // pause.SetActive(!pause.activeSelf); -- Andere Schreibweise bzw. kürzere Schreibweise
                     Time.timeScale = 0f;
                 }
-                // pause.SetActive(!pause.activeSelf); -- Andere Schreibweise bzw. kürzere Schreibweise 
+                 
             }
 
         }
@@ -102,20 +97,19 @@ public class GameManager : MonoBehaviour
     }
 }
 
-// Beispiel für eine separate StatsManager Klasse zur Verwaltung der Stats
+
 public static class StatsManager
 {
     public static int Score { get; private set; }
 
     public static void Initialize()
     {
-        // Hier können Stats initialisiert werden, z.B. von einem Speicher geladen oder auf Standardwerte gesetzt
         Score = 0;
     }
 
     public static void UpdateScore(int points)
     {
         Score += points;
-        // Hier könnten weitere Logiken zur Aktualisierung der Stats erfolgen
+
     }
 }
